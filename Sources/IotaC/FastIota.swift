@@ -27,17 +27,17 @@ class FastIota {
 		let str = String(cString: result)
 		
 		if checksum {
-			let addressChecksum = UnsafeMutablePointer<UInt8>.allocate(capacity: 81)
-			let addressChecksumResult = UnsafeMutablePointer<Int8>.allocate(capacity: 48)
+			let addressChecksum = UnsafeMutablePointer<UInt8>.allocate(capacity: 48)
+			let addressChecksumResult = UnsafeMutablePointer<Int8>.allocate(capacity: 81)
 			defer {
-				addressChecksum.deallocate(capacity: 81)
-				addressChecksumResult.deallocate(capacity: 48)
+				addressChecksum.deallocate(capacity: 48)
+				addressChecksumResult.deallocate(capacity: 81)
 			}
 			add_checksum(address, addressChecksum)
 			bytes_to_chars(addressChecksum, addressChecksumResult, 48)
 			
 			let checksumResult = String(cString: addressChecksumResult).suffix(9)
-			return str+checksumResult
+			return String(str+checksumResult)
 		}
 		return str
 	}
