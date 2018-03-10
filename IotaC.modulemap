@@ -1,0 +1,13 @@
+framework module IotaC {
+  umbrella header "IotaC-umbrella.h"
+
+  export *
+  module * { export * }
+  
+  module fastiota [system][extern_c]{
+	  header "fastiota.h"
+	  header "kerl.h"
+	  header "signing.h"
+	  export *
+  }
+}
