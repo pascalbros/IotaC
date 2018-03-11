@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.swift_version = '4.0'
   s.name         = "IotaC"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "A Swift wrapper for Iota C implementation"
 
   s.description  = <<-DESC
